@@ -11,6 +11,7 @@
 
 char *fn_strtok(char *str, const char *delim)
 {
+	char *token;
 	static char *buffer;
 	static int index;
 
@@ -21,7 +22,8 @@ char *fn_strtok(char *str, const char *delim)
 	}
 	if (buffer == NULL || buffer[index] == '\0')
 		return (NULL);
-	char *token = buffer + index;
+
+	token = buffer + index;
 
 	while (buffer[index] != '\0')
 	{

@@ -11,6 +11,7 @@ void simple_shell(char **env)
 	char *cmd = NULL;
 	size_t cmd_len = 0;
 	ssize_t cmd_char;
+	char *vector[MAX_COMMAND];
 
 	prompt();
 	cmd_char = my_getline(&cmd, &cmd_len, stdin);
@@ -18,9 +19,6 @@ void simple_shell(char **env)
 	{
 		if (cmd[cmd_char - 1] == '\n')
 			cmd[cmd_char - 1] = '\0';
-
-		char *vector[MAX_COMMAND];
-
 		parse_command(cmd, vector);
 		if (vector[0] == NULL)
 		{
